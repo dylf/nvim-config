@@ -1,2 +1,6 @@
-vim.api.nvim_set_keymap('n', '<Leader>e', '<cmd>Ex<CR>', { noremap = true, silent = true } )
-vim.api.nvim_set_keymap('n', '<Leader>E', '<cmd>Sex<CR>', { noremap = true, silent = true } )
+-- netrw full
+vim.keymap.set('n', '<Leader>e', '<cmd>Ex<CR>')
+-- netrw split
+vim.keymap.set('n', '<Leader>se', '<cmd>Sex<CR>')
+
+vim.keymap.set('n', '<Leader>vs', '<cmd>vsplit<CR>')
