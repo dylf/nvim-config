@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use 'EdenEast/nightfox.nvim'
+  
+  -- pretty icons
+  use 'nvim-tree/nvim-web-devicons'
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -33,8 +36,11 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'davidsierradz/cmp-conventionalcommits'
+
   -- snippets
-  use{'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*'}
+  use {'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*'}
   use 'saadparwaiz1/cmp_luasnip'
 
   use {
