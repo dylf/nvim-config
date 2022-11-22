@@ -10,5 +10,6 @@ require'lspconfig'.tsserver.setup {
     vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { buffer = 0 })
     vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { buffer = 0 })
     vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { buffer = 0 })
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
   end,
 }
