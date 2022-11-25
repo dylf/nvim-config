@@ -16,6 +16,9 @@ return require('packer').startup({function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Standard libs for most plugins
+  use 'nvim-lua/plenary.nvim'
+
   -- colorschemes
   use 'EdenEast/nightfox.nvim'
   
@@ -31,6 +34,12 @@ return require('packer').startup({function(use)
 
   --- LSP stuff
   use 'neovim/nvim-lspconfig'
+  -- Formatting and linting
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+  }
+
   --- autocomplete
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
