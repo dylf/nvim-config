@@ -26,14 +26,23 @@ return require('packer').startup({function(use)
   use 'nvim-tree/nvim-web-devicons'
 
   -- Telescope
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = {'nvim-lua/plenary.nvim'} }
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Better perf FZF algorithm. Only load if make is available on the system.
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
   --- LSP stuff
-  use 'neovim/nvim-lspconfig'
+  use { 
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- auto install LSPs
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      -- Status updates for LSP
+      'j-hui/fidget.nvim',
+    },
+  }
+
   -- Formatting and linting
   use {
     'jose-elias-alvarez/null-ls.nvim',
@@ -55,9 +64,14 @@ return require('packer').startup({function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
+
+  use {
+    -- Additional text objects via treesitter.
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
   }
 
   use {
