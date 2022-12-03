@@ -40,13 +40,11 @@ return require('packer').startup({ function(use)
       'williamboman/mason-lspconfig.nvim',
       -- Status updates for LSP
       'j-hui/fidget.nvim',
+      -- Formatting and linting
+      'jose-elias-alvarez/null-ls.nvim',
+      'jayp0521/mason-null-ls.nvim',
+      'nvim-lua/plenary.nvim',
     },
-  }
-
-  -- Formatting and linting
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
   }
 
   --- autocomplete

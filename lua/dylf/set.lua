@@ -21,3 +21,7 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
+
+-- get swap files outta here
+vim.opt.swapfile = false
+vim.opt.backup = false

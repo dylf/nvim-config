@@ -8,6 +8,7 @@ vim.keymap.set('n', '<Leader>vs', '<cmd>vsplit<CR>')
 -- telescope
 local tele = require('telescope.builtin')
 local custom_tele = require('dylf.telescope')
+
 vim.keymap.set('n', '<Leader>ff', tele.find_files, {})
 vim.keymap.set('n', '<Leader>fg', tele.live_grep, {})
 vim.keymap.set('n', '<Leader>fb', tele.buffers, {})

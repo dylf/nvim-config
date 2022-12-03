@@ -1,7 +1,14 @@
 -- Set up mason to manage LSPs.
 require('mason').setup()
 
-local servers = { 'rust_analyzer', 'tsserver', 'sumneko_lua' }
+local servers = {
+  'rust_analyzer',
+  'tsserver',
+  'sumneko_lua',
+  'yamlls',
+  'dockerls',
+  'astro',
+}
 
 require('mason-lspconfig').setup {
   ensure_installed = servers,
@@ -73,3 +80,10 @@ require('lspconfig').sumneko_lua.setup {
     },
   },
 }
+
+require('mason-null-ls').setup({
+  ensure_installed = { 'stylua', 'prettier' },
+  automatic_installation = true,
+})
+
+require 'mason-null-ls'.setup_handlers({})
