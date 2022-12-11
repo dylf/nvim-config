@@ -6,6 +6,7 @@ else
   require('dylf.telescope')
   require('dylf.lsp')
   require('dylf.cmp')
+  require('dylf.treesitter')
   require('dylf.lualine')
   vim.g.netrw_banner = 0
 end

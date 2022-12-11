@@ -21,6 +21,8 @@ return require('packer').startup({ function(use)
 
   -- colorschemes
   use 'EdenEast/nightfox.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+
 
   -- pretty icons
   use 'nvim-tree/nvim-web-devicons'
@@ -46,6 +48,8 @@ return require('packer').startup({ function(use)
       'nvim-lua/plenary.nvim',
     },
   }
+  -- LSP context in status line
+  use { 'SmiteshP/nvim-navic' }
 
   --- autocomplete
   use 'hrsh7th/nvim-cmp'
@@ -66,9 +70,11 @@ return require('packer').startup({ function(use)
     end,
   }
 
+
   use {
     -- Additional text objects via treesitter.
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/nvim-treesitter-context',
     after = 'nvim-treesitter',
   }
 
