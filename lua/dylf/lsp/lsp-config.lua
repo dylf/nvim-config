@@ -38,12 +38,13 @@ local on_attach = function(client, bufnr)
   end
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('<leader>K', vim.diagnostic.open_float, 'Hover Diagnostic')
   nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
   nmap('gT', vim.lsp.buf.type_definition, '[g]oto [T]ype definition')
   nmap('gi', vim.lsp.buf.implementation, '[g]oto [i]mplementation')
   nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
-  nmap('<leader>dn', vim.diagnostic.goto_next, '[d]iagnostic [n]ext')
-  nmap('<leader>dp', vim.diagnostic.goto_prev, '[d]iagnostic [p]rev')
+  nmap('[d', vim.diagnostic.goto_next, '[d]iagnostic [n]ext')
+  nmap(']d', vim.diagnostic.goto_prev, '[d]iagnostic [p]rev')
   nmap('<leader>.', vim.lsp.buf.code_action, 'Code actions')
   nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
 
