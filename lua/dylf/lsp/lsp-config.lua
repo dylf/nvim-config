@@ -26,7 +26,7 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
 
-  require("lsp-inlayhints").on_attach(client, bufnr)
+  require("lsp-inlayhints").on_attach(client, bufnr, false)
 
   -- Helper for remapping
   local nmap = function(keys, func, desc)
@@ -56,9 +56,9 @@ local on_attach = function(client, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Autoformat on buf write
-  _vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+  vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
-  if _.server_capabilities.documentHighlight then
+  if client.server_capabilities.documentHighlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
