@@ -45,6 +45,7 @@ return require('packer').startup({ function(use)
       -- Formatting and linting
       'jose-elias-alvarez/null-ls.nvim',
       'jayp0521/mason-null-ls.nvim',
+      'lvimuser/lsp-inlayhints.nvim',
       'nvim-lua/plenary.nvim',
     },
   }
