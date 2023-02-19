@@ -4,7 +4,7 @@ require('nightfox').setup({
   }
 })
 
-local colorscheme = 'catppuccin-mocha'
+local colorscheme = 'carbonfox'
 
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
 
