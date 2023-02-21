@@ -8,6 +8,7 @@ local servers = {
   'yamlls',
   'dockerls',
   'astro',
+  'intelephense',
 }
 
 require('mason-lspconfig').setup {
