@@ -4,5 +4,9 @@ if not status_ok then
   return
 end
 
- null_ls.setup({
- })
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.diagnostics.eslint,
+  },
+})
