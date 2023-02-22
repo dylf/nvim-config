@@ -17,4 +17,8 @@ mappings.curr_buf = function()
   require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
 
+mappings.live_grep_hidden = function()
+  require('telescope.builtin').live_grep({ additional_args = { "--no-ignore", "--hidden" } })
+end
+
 return mappings

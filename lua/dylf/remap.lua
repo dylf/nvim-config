@@ -16,6 +16,7 @@ vim.keymap.set('n', '<Leader>fh', tele.help_tags, {})
 vim.keymap.set('n', '<Leader>fc', tele.colorscheme, {})
 vim.keymap.set('n', '<Leader>fd', tele.diagnostics, {})
 vim.keymap.set('n', '<Leader>fB', custom_tele.curr_buf, {})
+vim.keymap.set('n', '<Leader>fG', custom_tele.live_grep_hidden, {})
 
 -- window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h')
