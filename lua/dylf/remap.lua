@@ -37,3 +37,5 @@ vim.keymap.set('n', '<Leader>z', '<cmd>ZenMode<CR>')
 vim.keymap.set('n', '<Leader><Leader>', '<cmd>source<CR>')
 
 vim.keymap.set('n', '<Leader>gg', '<cmd>LazyGit<CR>')
+vim.keymap.set('n', '<Leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
+vim.keymap.set('n', '<Leader>gB', '<cmd>Gitsigns blame_line<CR>')
