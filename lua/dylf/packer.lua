@@ -23,7 +23,6 @@ return require('packer').startup({ function(use)
   use 'EdenEast/nightfox.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
 
-
   -- pretty icons
   use 'nvim-tree/nvim-web-devicons'
 
@@ -88,6 +87,9 @@ return require('packer').startup({ function(use)
 
   -- Fancier status line
   use { 'nvim-lualine/lualine.nvim' }
+
+  -- Zen
+  use { 'folke/zen-mode.nvim' }
 
 end,
   config = {

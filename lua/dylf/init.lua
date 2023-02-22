@@ -8,6 +8,7 @@ else
   require('dylf.cmp')
   require('dylf.treesitter')
   require('dylf.lualine')
+  require('dylf.zenmode')
   vim.g.netrw_banner = 0
 end
 

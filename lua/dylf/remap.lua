@@ -29,3 +29,9 @@ vim.keymap.set('n', '<leader>PS', '<cmd>PackerSync<CR>')
 -- center line when using pg movement
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- zen toggle
+vim.keymap.set('n', '<Leader>z', '<cmd>ZenMode<CR>')
+
+-- source current buffer
+vim.keymap.set('n', '<Leader><Leader>', '<cmd>source<CR>')
