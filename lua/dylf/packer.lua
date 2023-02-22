@@ -78,6 +78,7 @@ return require('packer').startup({ function(use)
     after = 'nvim-treesitter',
   }
 
+  -- git
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -86,6 +87,8 @@ return require('packer').startup({ function(use)
       })
     end
   }
+
+  use { 'kdheepak/lazygit.nvim' }
 
   -- Fancier status line
   use { 'nvim-lualine/lualine.nvim' }

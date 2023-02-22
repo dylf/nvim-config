@@ -35,3 +35,5 @@ vim.keymap.set('n', '<Leader>z', '<cmd>ZenMode<CR>')
 
 -- source current buffer
 vim.keymap.set('n', '<Leader><Leader>', '<cmd>source<CR>')
+
+vim.keymap.set('n', '<Leader>gg', '<cmd>LazyGit<CR>')
