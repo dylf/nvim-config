@@ -9,6 +9,7 @@ else
   require('dylf.treesitter')
   require('dylf.lualine')
   require('dylf.zenmode')
+  require('dylf.leap')
   vim.g.netrw_banner = 0
 end
 

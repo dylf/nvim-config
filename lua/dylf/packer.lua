@@ -97,6 +97,8 @@ return require('packer').startup({ function(use)
   use { 'folke/zen-mode.nvim' }
   use { 'folke/twilight.nvim' }
 
+  use { 'ggandor/leap.nvim' }
+
 end,
   config = {
     display = {
