@@ -90,6 +90,7 @@ return require('packer').startup({ function(use)
 
   -- Zen
   use { 'folke/zen-mode.nvim' }
+  use { 'folke/twilight.nvim' }
 
 end,
   config = {
