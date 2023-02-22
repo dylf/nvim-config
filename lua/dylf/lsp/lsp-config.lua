@@ -4,7 +4,7 @@ require('mason').setup()
 local servers = {
   'rust_analyzer',
   'tsserver',
-  'sumneko_lua',
+  'lua_ls',
   'yamlls',
   'dockerls',
   'astro',
@@ -63,9 +63,9 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      autocmd! * <buffer>
+      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
       ]],
       false
@@ -88,12 +88,12 @@ require('fidget').setup {
   },
 }
 
--- Do additional sumneko_lua setup for nvim config.
+-- Do additional lua_ls setup for nvim config.
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
