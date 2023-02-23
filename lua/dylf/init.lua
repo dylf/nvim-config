@@ -1,21 +1,8 @@
-if vim.g.vscode then
-  -- Add any vscode specific config
-else
-  -- Neovim specific plugins
-  require('dylf.packer')
-  require('dylf.telescope')
-  require('dylf.lsp')
-  require('dylf.cmp')
-  require('dylf.treesitter')
-  require('dylf.lualine')
-  require('dylf.zenmode')
-  require('dylf.leap')
-  vim.g.netrw_banner = 0
-end
-
 require('dylf.set')
+require("dylf.lazy")
 require('dylf.remap')
 
+vim.g.netrw_banner = 0
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('HighlightYank', {}),
