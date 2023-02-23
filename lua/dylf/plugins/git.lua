@@ -4,5 +4,6 @@ return {
     opts = {
       yadm = { enable = true },
     },
-  }
+  },
+  "kdheepak/lazygit.nvim",
 }
