@@ -27,7 +27,13 @@ return require('packer').startup({ function(use)
   use 'nvim-tree/nvim-web-devicons'
 
   -- Telescope
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '*',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    }
+  }
 
   -- Better perf FZF algorithm. Only load if make is available on the system.
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -98,6 +104,8 @@ return require('packer').startup({ function(use)
   use { 'folke/twilight.nvim' }
 
   use { 'ggandor/leap.nvim' }
+
+  use { 'mbbill/undotree' }
 
 end,
   config = {

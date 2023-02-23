@@ -17,6 +17,7 @@ vim.keymap.set('n', '<Leader>fc', tele.colorscheme, {})
 vim.keymap.set('n', '<Leader>fd', tele.diagnostics, {})
 vim.keymap.set('n', '<Leader>fB', custom_tele.curr_buf, {})
 vim.keymap.set('n', '<Leader>fG', custom_tele.live_grep_hidden, {})
+vim.keymap.set('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", {})
 
 -- window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h')
