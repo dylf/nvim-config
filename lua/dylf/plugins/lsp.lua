@@ -12,8 +12,8 @@ return {
       "jayp0521/mason-null-ls.nvim",
       "lvimuser/lsp-inlayhints.nvim",
       "nvim-lua/plenary.nvim",
+      "folke/neodev.nvim",
     },
   },
   "SmiteshP/nvim-navic",
 }
-

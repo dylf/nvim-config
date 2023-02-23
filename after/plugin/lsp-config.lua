@@ -22,7 +22,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local on_attach = function(client, bufnr)
-
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
   end
@@ -71,7 +70,6 @@ local on_attach = function(client, bufnr)
       false
     )
   end
-
 end
 
 for _, lsp in ipairs(servers) do
