@@ -18,6 +18,9 @@ require('mason-lspconfig').setup {
 -- statusline/winbar lsp context
 local navic = require("nvim-navic")
 
+-- Setup neovim lua configuration
+require('neodev').setup()
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
