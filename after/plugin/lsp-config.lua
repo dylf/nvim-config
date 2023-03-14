@@ -9,6 +9,7 @@ local servers = {
   'dockerls',
   'astro',
   'intelephense',
+  'prismals',
 }
 
 require('mason-lspconfig').setup {
