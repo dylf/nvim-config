@@ -3,6 +3,7 @@ require("dylf.lazy")
 require('dylf.remap')
 
 vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('HighlightYank', {}),
