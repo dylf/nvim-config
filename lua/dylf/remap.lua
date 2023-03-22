@@ -44,3 +44,7 @@ vim.keymap.set("n", "<Leader><Leader>", "<cmd>source<CR>", { desc = "<leader>sou
 vim.keymap.set("n", "<Leader>gg", "<cmd>LazyGit<CR>", { desc = "[g]it lazy[g]it" })
 vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "[g]it toggle [b]lame" })
 vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", { desc = "[g]it [B]lame current line" })
+
+-- quickfix
+vim.keymap.set("n", "[q", vim.cmd.cprevious, { desc = "previous quickfix" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "next quickfix" })
