@@ -22,10 +22,15 @@ cmp.setup({
 	},
 	mapping = {
 		["<Tab>"] = cmp.mapping(function(fallback)
+			-- Set up copilot to play nice with cmp
+			local copilot_keys = vim.fn["copilot#Accept"]()
+
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
+			elseif copilot_keys ~= "" then
+				vim.api.nvim_feedkeys(copilot_keys, "i", true)
 			elseif has_words_before() then
 				cmp.complete()
 			else
@@ -45,7 +50,6 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 	},
 	sources = cmp.config.sources({
-		{ name = "copilot", group_index = 2 },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
@@ -53,25 +57,7 @@ cmp.setup({
 		{ name = "path" },
 	}),
 	experimental = {
-		ghost_text = true,
-	},
-	sorting = {
-		priority_weight = 2,
-		comparators = {
-			require("copilot_cmp.comparators").prioritize,
-
-			-- Below is the default comparitor list and order for nvim-cmp
-			cmp.config.compare.offset,
-			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
-			cmp.config.compare.exact,
-			cmp.config.compare.score,
-			cmp.config.compare.recently_used,
-			cmp.config.compare.locality,
-			cmp.config.compare.kind,
-			cmp.config.compare.sort_text,
-			cmp.config.compare.length,
-			cmp.config.compare.order,
-		},
+		ghost_text = false,
 	},
 })
 
