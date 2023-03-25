@@ -22,19 +22,14 @@ cmp.setup({
 	},
 	mapping = {
 		["<Tab>"] = cmp.mapping(function(fallback)
-			-- Set up copilot to play nice with cmp
-			local copilot_keys = vim.fn["copilot#Accept"]()
-
 			if cmp.visible() then
-				cmp.select_next_item()
+			  cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif copilot_keys ~= "" then
-				vim.api.nvim_feedkeys(copilot_keys, "i", true)
+			  luasnip.expand_or_jump()
 			elseif has_words_before() then
-				cmp.complete()
+			  cmp.complete()
 			else
-				fallback()
+			  fallback()
 			end
 		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
