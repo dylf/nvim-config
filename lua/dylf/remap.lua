@@ -48,3 +48,5 @@ vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", { desc = "[g]i
 -- quickfix
 vim.keymap.set("n", "[q", vim.cmd.cprevious, { desc = "previous quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "next quickfix" })
+
+vim.keymap.set("n", "<leader>s", vim.cmd.write, { desc = "save" })
