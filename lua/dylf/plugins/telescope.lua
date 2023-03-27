@@ -8,9 +8,21 @@ return {
 		config = function()
 			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
+			local actions = require("telescope.actions")
 
 			telescope.setup({
-				defaults = {},
+				defaults = {
+          mappings = {
+            i = {
+              ["<C-q>"] = actions.send_to_qflist,
+              ["<M-q>"] = actions.send_selected_to_qflist,
+            },
+            n = {
+              ["<C-q>"] = actions.send_to_qflist,
+              ["<M-q>"] = actions.send_selected_to_qflist,
+            },
+          },
+        },
 				pickers = {
 					find_files = {
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
@@ -46,7 +58,7 @@ return {
 		cond = function()
 			return vim.fn.executable("make") == 1
 		end,
-		config = function()
+    config = function()
 			require("telescope").load_extension("fzf")
 		end,
 	},

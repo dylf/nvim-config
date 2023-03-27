@@ -5,15 +5,19 @@ return {
 	keys = {
 		{ "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
 		{ "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-		{ "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-		{ "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+		{ "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+		{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
 		{
 			"[q",
 			function()
 				if require("trouble").is_open() then
 					require("trouble").previous({ skip_groups = true, jump = true })
 				else
-					vim.cmd.cprev()
+					local ok, _ = pcall(vim.cmd.cprev)
+
+          if not ok then
+            vim.notify("No previous quickfix entries", vim.log.levels.WARN)
+          end
 				end
 			end,
 			desc = "Previous trouble/quickfix item",
@@ -24,7 +28,11 @@ return {
 				if require("trouble").is_open() then
 					require("trouble").next({ skip_groups = true, jump = true })
 				else
-					vim.cmd.cnext()
+          local ok, _ = pcall(vim.cmd.cnext)
+
+          if not ok then
+            vim.notify("No more quickfix entries", vim.log.levels.WARN)
+          end
 				end
 			end,
 			desc = "Next trouble/quickfix item",
