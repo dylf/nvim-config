@@ -7,7 +7,12 @@ return {
 			require("leap").add_default_mappings()
 		end,
 	},
-	"mbbill/undotree",
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<Leader>u", "<cmd>UndotreeToggle<CR>", { desc = "[u]ndotree toggle" } },
+		},
+	},
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
@@ -19,7 +24,7 @@ return {
 		"rmagatti/alternate-toggler",
 		keys = {
 			{
-				"<leader>tb",
+				"<leader>tt",
 				"<cmd> lua require('alternate-toggler').toggleAlternate()<cr>",
 				desc = "toggle boolean",
 			},

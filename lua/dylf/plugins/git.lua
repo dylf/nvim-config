@@ -14,5 +14,10 @@ return {
 			},
 		},
 	},
-	"kdheepak/lazygit.nvim",
+	{
+		"kdheepak/lazygit.nvim",
+		keys = {
+			{ "<Leader>gg", "<cmd>LazyGit<CR>", { desc = "[g]it lazy[g]it" } },
+		},
+	},
 }
