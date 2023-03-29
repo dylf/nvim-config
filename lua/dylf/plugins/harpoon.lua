@@ -4,18 +4,42 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    require("harpoon").setup()
+    local excluded_filetypes = {
+      "harpoon",
+      "neo-tree",
+      "qf",
+      "TelescopePrompt",
+      "Trouble",
+    }
+    require("harpoon").setup({
+      global_settings = {
+        save_on_toggle = false,
+        save_on_change = true,
+        excluded_filetypes = excluded_filetypes,
+      },
+    })
     local ui = require("harpoon.ui")
     local mark = require("harpoon.mark")
 
+    -- Wrap mark functions to prevent attempting to add files of certain types
+    local safe_mark = function(add_func)
+      return function()
+        local ft = vim.bo.filetype
+        if not vim.tbl_contains(excluded_filetypes, ft) then
+          return add_func()
+        end
+        vim.notify("Cannot add file of type " .. ft, vim.log.levels.ERROR)
+      end
+    end
+
     vim.keymap.set("n", "<leader>hh", ui.toggle_quick_menu, { desc = "Harpoon: quick menu" })
-    vim.keymap.set("n", "<leader>ha", mark.add_file, { desc = "Harpoon: add file" })
+    vim.keymap.set("n", "<leader>ha", safe_mark(mark.add_file), { desc = "Harpoon: add file" })
     vim.keymap.set("n", "<leader>hr", mark.rm_file, { desc = "Harpoon: remove file" })
     vim.keymap.set("n", "<leader>hx", mark.clear_all, { desc = "Harpoon: clear all" })
 
     -- Set keymaps for pinning and going to the first five marks
     local set_mark_at = function (num)
-      return function() mark.set_current_at(num) end
+      return function() safe_mark(mark.set_current_at(num)) end
     end
 
     local goto = function (num)
