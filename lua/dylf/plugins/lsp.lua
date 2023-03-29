@@ -6,7 +6,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"nvim-lua/plenary.nvim",
-			"folke/neodev.nvim",
+			{ "folke/neodev.nvim", opts = {} },
 			{
 				"SmiteshP/nvim-navic",
 				config = function()

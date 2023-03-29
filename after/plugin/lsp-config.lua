@@ -20,9 +20,6 @@ require("mason-lspconfig").setup({
 -- statusline/winbar lsp context
 local navic = require("nvim-navic")
 
--- Setup neovim lua configuration
-require("neodev").setup()
-
 local on_attach = function(client, bufnr)
 	if client.server_capabilities.documentSymbolProvider then
 		navic.attach(client, bufnr)
@@ -71,10 +68,6 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 		on_attach = on_attach,
 	}
-
-	-- if lsp == "tailwindcss" then
-	-- 	opts.root_dir = require("lspconfig").util.root_pattern("tailwind.config.js")
-	-- end
 
 	lspconfig[lsp].setup(opts)
 end
