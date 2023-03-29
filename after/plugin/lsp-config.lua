@@ -23,15 +23,10 @@ local navic = require("nvim-navic")
 -- Setup neovim lua configuration
 require("neodev").setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 local on_attach = function(client, bufnr)
 	if client.server_capabilities.documentSymbolProvider then
 		navic.attach(client, bufnr)
 	end
-
-	require("lsp-inlayhints").on_attach(client, bufnr, false)
 
 	-- Helper for remapping
 	local nmap = function(keys, func, desc)
@@ -63,21 +58,11 @@ local on_attach = function(client, bufnr)
 	nmap("<leader>=", vim.lsp.buf.format, "Format")
 
 	-- Autoformat on buf write
-	-- vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
-
-	if client.server_capabilities.documentHighlight then
-		vim.api.nvim_exec(
-			[[
-      augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-      ]],
-			false
-		)
-	end
+	vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local lspconfig = require("lspconfig")
 
@@ -94,34 +79,18 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup(opts)
 end
 
--- Turn on status information
-require("fidget").setup({
-	text = {
-		spinner = "moon",
-	},
-})
-
--- Do additional lua_ls setup for nvim config.
-local runtime_path = vim.split(package.path, ";", {})
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
 require("lspconfig").lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT)
-				version = "LuaJIT",
-				-- Setup your lua path
-				path = runtime_path,
+			completion = {
+				callSnippet = "Replace",
 			},
 			diagnostics = {
 				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
 				checkThirdParty = false,
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
@@ -129,5 +98,3 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
-
-require("lsp-inlayhints").setup()

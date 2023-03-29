@@ -21,14 +21,13 @@ return {
 						accept = "<M-CR>",
 					},
 				},
-        filetypes = {
-          markdown = true,
-        },
+				filetypes = {
+					markdown = true,
+				},
 			})
 
-
-      vim.api.nvim_set_keymap("n", "<leader>ce", ":Copilot enable<CR>", { desc = 'Copilot enable'})
-      vim.api.nvim_set_keymap("n", "<leader>cd", ":Copilot disable<CR>", { desc = 'Copilot disable'})
+			vim.api.nvim_set_keymap("n", "<leader>ce", ":Copilot enable<CR>", { desc = "Copilot enable" })
+			vim.api.nvim_set_keymap("n", "<leader>cd", ":Copilot disable<CR>", { desc = "Copilot disable" })
 		end,
 	},
 }
