@@ -1,6 +1,5 @@
 return {
 	"nvim-tree/nvim-web-devicons",
-	"nvim-lualine/lualine.nvim",
 	{
 		"ggandor/leap.nvim",
 		config = function()
@@ -15,9 +14,7 @@ return {
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
+		opts = {},
 		event = "BufReadPost",
 	},
 	{
