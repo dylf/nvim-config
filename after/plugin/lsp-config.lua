@@ -17,14 +17,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
 
--- statusline/winbar lsp context
-local navic = require("nvim-navic")
-
-local on_attach = function(client, bufnr)
-	if client.server_capabilities.documentSymbolProvider then
-		navic.attach(client, bufnr)
-	end
-
+local on_attach = function(_, bufnr)
 	-- Helper for remapping
 	local nmap = function(keys, func, desc)
 		if desc then
