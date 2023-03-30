@@ -12,8 +12,12 @@ return {
 					function()
 						return navic.get_location()
 					end,
-					cond = navic.is_available,
 				},
+			},
+			extensions = {
+				"neo-tree",
+				"nvim-dap-ui",
+				"quickfix",
 			},
 		})
 	end,
