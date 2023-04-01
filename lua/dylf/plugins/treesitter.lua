@@ -14,6 +14,7 @@ return {
 				ensure_installed = {
 					"astro",
 					"help",
+					"javascript",
 					"lua",
 					"php",
 					"prisma",
