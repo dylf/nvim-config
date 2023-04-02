@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
+			"RRethy/nvim-treesitter-endwise",
 		},
 		build = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
@@ -81,6 +82,9 @@ return {
 				context_commentstring = {
 					enable = true,
 					enable_autocmd = false,
+				},
+				endwise = {
+					enable = true,
 				},
 			})
 
