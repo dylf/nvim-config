@@ -5,6 +5,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 			"RRethy/nvim-treesitter-endwise",
+			"windwp/nvim-ts-autotag",
 		},
 		build = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
@@ -14,15 +15,31 @@ return {
 				-- Add languages to be installed here that you want installed for treesitter
 				ensure_installed = {
 					"astro",
+					"bash",
+					"css",
+					"dockerfile",
+					"gitcommit",
+					"gitignore",
+					"graphql",
 					"help",
+					"html",
+					"http",
 					"javascript",
+					"json",
 					"lua",
+					"make",
+					"markdown",
 					"php",
 					"prisma",
 					"python",
 					"rust",
+					"scss",
+					"svelte",
 					"typescript",
+					"tsx",
+					"twig",
 					"vim",
+					"yaml",
 				},
 				highlight = { enable = true },
 				indent = { enable = true },
@@ -84,6 +101,9 @@ return {
 					enable_autocmd = false,
 				},
 				endwise = {
+					enable = true,
+				},
+				autotag = {
 					enable = true,
 				},
 			})
