@@ -13,6 +13,18 @@ return {
 						return navic.get_location()
 					end,
 				},
+				lualine_x = {
+					"encoding",
+					"fileformat",
+					"filetype",
+					function()
+						local client = require("copilot.client")
+						if client.is_disabled() then
+							return " "
+						end
+						return " "
+					end,
+				},
 			},
 			extensions = {
 				"neo-tree",
