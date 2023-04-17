@@ -2,6 +2,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 5
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

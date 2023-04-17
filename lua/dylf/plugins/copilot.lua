@@ -18,7 +18,7 @@ return {
 					keymap = {
 						accept_word = "<M-w>",
 						accept_line = "<M-l>",
-						accept = "<M-CR>",
+						accept = "<M-b>",
 					},
 				},
 				filetypes = {
