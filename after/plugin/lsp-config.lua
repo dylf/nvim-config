@@ -11,6 +11,7 @@ local servers = {
 	"intelephense",
 	"prismals",
 	"tailwindcss",
+	"bashls",
 }
 
 require("mason-lspconfig").setup({
