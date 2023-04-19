@@ -10,10 +10,9 @@ return {
     require("mason-null-ls").setup({
       ensure_installed = { "stylua", "prettier" },
       automatic_setup = true,
+      handlers = {},
     })
 
     require("null-ls").setup({})
-
-    require("mason-null-ls").setup_handlers({})
   end,
 }
