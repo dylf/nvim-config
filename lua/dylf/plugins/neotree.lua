@@ -13,7 +13,7 @@ return {
 			filesystem = {
 				filtered_items = { visible = true },
 				follow_current_file = true,
-				hijack_netrw_behavior = "open_default",
+				hijack_netrw_behavior = "disabled",
 				use_libuv_file_watcher = true,
 				components = {
 					harpoon_index = function(config, node)
