@@ -13,12 +13,24 @@ return {
 				},
 			})
 
-			vim.cmd([[colorscheme carbonfox]])
+			-- vim.cmd([[colorscheme carbonfox]])
 		end,
 	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		event = "VeryLazy",
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			require("rose-pine").setup({
+				disable_background = true,
+			})
+			vim.cmd([[colorscheme rose-pine]])
+		end,
 	},
 }
