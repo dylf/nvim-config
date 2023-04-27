@@ -86,6 +86,16 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
+lspconfig.yamlls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		yaml = {
+			keyOrdering = false,
+		},
+	},
+})
+
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
