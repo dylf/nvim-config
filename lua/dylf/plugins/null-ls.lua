@@ -1,18 +1,16 @@
 return {
-  "jay-babu/mason-null-ls.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "williamboman/mason.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
-  },
-  config = function()
-    require("mason").setup()
-    require("mason-null-ls").setup({
-      ensure_installed = { "stylua", "prettier" },
-      automatic_setup = true,
-      handlers = {},
-    })
+	"jose-elias-alvarez/null-ls.nvim",
+	event = { "BufReadPre", "BufNewFile" },
+	config = function()
+		local null_ls = require("null-ls")
 
-    require("null-ls").setup({})
-  end,
+		null_ls.setup({
+			sources = {
+				null_ls.builtins.formatting.prettierd.with({
+					extra_filetypes = { "astro" },
+				}),
+				null_ls.builtins.formatting.stylua,
+			},
+		})
+	end,
 }
