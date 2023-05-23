@@ -10,6 +10,12 @@ return {
 
 		require("neo-tree").setup({
 			close_if_last_window = true,
+			source_selector = {
+				winbar = true,
+			},
+			window = {
+				width = 30,
+			},
 			filesystem = {
 				filtered_items = { visible = true },
 				follow_current_file = true,
