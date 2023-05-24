@@ -16,10 +16,14 @@ return {
 						i = {
 							["<C-q>"] = actions.send_to_qflist,
 							["<M-q>"] = actions.send_selected_to_qflist,
+							["<C-l>"] = actions.send_to_loclist,
+							["<M-l>"] = actions.send_selected_to_loclist,
 						},
 						n = {
 							["<C-q>"] = actions.send_to_qflist,
 							["<M-q>"] = actions.send_selected_to_qflist,
+							["<C-l>"] = actions.send_to_loclist,
+							["<M-l>"] = actions.send_selected_to_loclist,
 						},
 					},
 				},
@@ -49,6 +53,7 @@ return {
 			vim.keymap.set("n", "<Leader>fd", builtin.diagnostics, { desc = "[f]ind [d]iagnostics" })
 			vim.keymap.set("n", "<Leader>fB", custom_tele.curr_buf, { desc = "[f]ind in current [B]uffer" })
 			vim.keymap.set("n", "<Leader>fG", custom_tele.live_grep_hidden, { desc = "[f]ind [G]rep hidden" })
+			vim.keymap.set("n", "<Leader>f*", builtin.grep_string, { desc = "find word under cursor" })
 
 			-- Make telescope window transparent
 			vim.api.nvim_set_hl(0, "TelescopeMatching", { bg = "none" })

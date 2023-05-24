@@ -42,3 +42,6 @@ vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", { desc = "[g]i
 
 -- copy to system clipboard
 vim.keymap.set("v", "<Leader>y", '"+y', { desc = "Copy to system clipboard" })
+
+-- Paste over selection
+vim.keymap.set("x", "<Leader>p", '"_dP', { desc = "Paste over selection without overwriting register" })
