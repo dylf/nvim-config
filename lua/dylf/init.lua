@@ -18,6 +18,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		vim.cmd("silent! lua require('telescope.builtin').find_files()")
+		-- Open telescope on startup
+		if vim.bo.filetype ~= "gitcommit" then
+			vim.cmd("silent! lua require('telescope.builtin').find_files()")
+		end
 	end,
 })
