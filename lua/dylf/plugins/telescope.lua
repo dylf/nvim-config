@@ -12,17 +12,17 @@ return {
 
 			telescope.setup({
 				defaults = {
-          mappings = {
-            i = {
-              ["<C-q>"] = actions.send_to_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist,
-            },
-            n = {
-              ["<C-q>"] = actions.send_to_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist,
-            },
-          },
-        },
+					mappings = {
+						i = {
+							["<C-q>"] = actions.send_to_qflist,
+							["<M-q>"] = actions.send_selected_to_qflist,
+						},
+						n = {
+							["<C-q>"] = actions.send_to_qflist,
+							["<M-q>"] = actions.send_selected_to_qflist,
+						},
+					},
+				},
 				pickers = {
 					find_files = {
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
@@ -49,6 +49,21 @@ return {
 			vim.keymap.set("n", "<Leader>fd", builtin.diagnostics, { desc = "[f]ind [d]iagnostics" })
 			vim.keymap.set("n", "<Leader>fB", custom_tele.curr_buf, { desc = "[f]ind in current [B]uffer" })
 			vim.keymap.set("n", "<Leader>fG", custom_tele.live_grep_hidden, { desc = "[f]ind [G]rep hidden" })
+
+			-- Make telescope window transparent
+			vim.api.nvim_set_hl(0, "TelescopeMatching", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "none" })
 		end,
 	},
 	{
@@ -58,7 +73,7 @@ return {
 		cond = function()
 			return vim.fn.executable("make") == 1
 		end,
-    config = function()
+		config = function()
 			require("telescope").load_extension("fzf")
 		end,
 	},
