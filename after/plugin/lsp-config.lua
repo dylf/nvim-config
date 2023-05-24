@@ -13,6 +13,7 @@ local servers = {
 	"tailwindcss",
 	"bashls",
 	"sqlls",
+	"jsonls",
 }
 
 require("mason-lspconfig").setup({
