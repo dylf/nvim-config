@@ -57,8 +57,6 @@ return {
 
 			-- Make telescope window transparent
 			vim.api.nvim_set_hl(0, "TelescopeMatching", { bg = "none" })
-			vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
-			vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "none" })
 			vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
 			vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "none" })
 			vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "none" })
