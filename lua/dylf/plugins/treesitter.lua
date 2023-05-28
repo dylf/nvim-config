@@ -6,6 +6,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			"RRethy/nvim-treesitter-endwise",
 			"windwp/nvim-ts-autotag",
+			"nkrkv/nvim-treesitter-rescript",
 		},
 		build = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
@@ -32,6 +33,7 @@ return {
 					"php",
 					"prisma",
 					"python",
+					"rescript",
 					"rust",
 					"scss",
 					"svelte",
