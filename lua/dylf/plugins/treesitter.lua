@@ -27,6 +27,7 @@ return {
 					"http",
 					"javascript",
 					"json",
+					"kdl",
 					"lua",
 					"make",
 					"markdown",
