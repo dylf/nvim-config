@@ -29,3 +29,14 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 99
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { "*" },
+	command = "normal zx",
+})
+-- vim.opt.foldenable  true
+-- vim.o.foldmethod = "indent"
+-- vim.o.foldenable = true
