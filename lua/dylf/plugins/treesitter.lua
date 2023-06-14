@@ -19,6 +19,7 @@ return {
 					"bash",
 					"css",
 					"dockerfile",
+					"elixir",
 					"gitcommit",
 					"gitignore",
 					"graphql",
