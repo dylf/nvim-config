@@ -10,6 +10,13 @@ return {
 			local builtin = require("telescope.builtin")
 			local actions = require("telescope.actions")
 
+			local show_ignored = false
+			local toggle_gitignore = function(_prompt_bufnr)
+				show_ignored = not show_ignored
+				local title = show_ignored and "Find Files (ignored)" or "Find Files"
+				builtin.find_files({ no_ignore = show_ignored, prompt_title = title })
+			end
+
 			telescope.setup({
 				defaults = {
 					mappings = {
@@ -30,6 +37,14 @@ return {
 				pickers = {
 					find_files = {
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+						mappings = {
+							i = {
+								["<C-g>"] = toggle_gitignore,
+							},
+							n = {
+								["<C-g>"] = toggle_gitignore,
+							},
+						},
 					},
 				},
 			})
