@@ -22,6 +22,7 @@ return {
 					"elixir",
 					"gitcommit",
 					"gitignore",
+					"go",
 					"graphql",
 					"help",
 					"html",

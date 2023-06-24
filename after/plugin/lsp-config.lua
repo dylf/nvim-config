@@ -15,6 +15,7 @@ local servers = {
 	"sqlls",
 	"jsonls",
 	"rescriptls",
+	"gopls",
 }
 
 require("mason-lspconfig").setup({
