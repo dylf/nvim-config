@@ -10,35 +10,9 @@ return {
 			{
 				"SmiteshP/nvim-navic",
 				config = function()
+					local icons = require("dylf.icons")
 					require("nvim-navic").setup({
-						icons = {
-							File = " ",
-							Module = " ",
-							Namespace = " ",
-							Package = " ",
-							Class = " ",
-							Method = " ",
-							Property = " ",
-							Field = " ",
-							Constructor = " ",
-							Enum = " ",
-							Interface = " ",
-							Function = " ",
-							Variable = " ",
-							Constant = " ",
-							String = " ",
-							Number = " ",
-							Boolean = " ",
-							Array = " ",
-							Object = " ",
-							Key = " ",
-							Null = " ",
-							EnumMember = " ",
-							Struct = " ",
-							Event = " ",
-							Operator = " ",
-							TypeParameter = " ",
-						},
+						icons = icons.kinds,
 					})
 
 					vim.api.nvim_create_augroup("LspAttach_navic", {})
@@ -82,6 +56,7 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
+		tag = "legacy",
 		event = "LspAttach",
 		opts = {
 			text = {

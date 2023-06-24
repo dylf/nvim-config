@@ -5,6 +5,7 @@ return {
 	},
 	config = function()
 		local navic = require("nvim-navic")
+		local icons = require("dylf.icons")
 
 		require("lualine").setup({
 			sections = {
@@ -22,7 +23,7 @@ return {
 						if client.is_disabled() then
 							return " "
 						end
-						return " "
+						return icons.kinds.Copilot
 					end,
 				},
 			},
