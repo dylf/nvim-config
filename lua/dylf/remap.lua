@@ -2,11 +2,11 @@
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
--- window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Focus left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Focus down window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Focus up window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Focus right window" })
+-- window navigation (not needed with tmux plugin)
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Focus left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Focus down window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Focus up window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Focus right window" })
 
 -- resize windows
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Resize window left" })
