@@ -33,9 +33,6 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent selected text right" })
 -- save
 vim.keymap.set("n", "<leader>s", vim.cmd.write, { desc = "save" })
 
--- explorer
-vim.keymap.set("n", "<Leader>e", "<cmd>NeoTreeShowToggle<CR>", { desc = "[e]xplore files" })
-
 -- git
 vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "[g]it toggle [b]lame" })
 vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", { desc = "[g]it [B]lame current line" })
