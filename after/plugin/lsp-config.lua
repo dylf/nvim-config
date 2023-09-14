@@ -16,6 +16,7 @@ local servers = {
 	"jsonls",
 	"rescriptls",
 	"gopls",
+	"svelte",
 }
 
 require("mason-lspconfig").setup({
