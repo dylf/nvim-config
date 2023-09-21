@@ -120,3 +120,23 @@ require("lspconfig").rust_analyzer.setup({
 		},
 	},
 })
+
+local function preview_location_callback(_, result)
+	if result == nil or vim.tbl_isempty(result) then
+		return nil
+	end
+	vim.lsp.util.preview_location(result[1])
+end
+
+function peek_definition()
+	local params = vim.lsp.util.make_position_params()
+	return vim.lsp.buf_request(0, "textDocument/definition", params, preview_location_callback)
+end
+
+--- add a keybind for pea kdefinition
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>pd",
+	"<cmd>lua peek_definition()<CR>",
+	{ noremap = true, silent = true, desc = "LSP: [p]eek [d]efinition" }
+)
