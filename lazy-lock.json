@@ -14,6 +14,7 @@
   "conform.nvim": { "branch": "master", "commit": "dd5b2f2f7ca01c2f28239cbbc7f97e6f9024cd94" },
   "copilot.lua": { "branch": "master", "commit": "33aa9419da8f9bf9b6a992e6c9c7b7f9e36dac06" },
   "crates.nvim": { "branch": "main", "commit": "1dffccc0a95f656ebe00cacb4de282473430c5a1" },
+  "dressing.nvim": { "branch": "master", "commit": "c1e1d5fa44fe08811b6ef4aadac2b50e602f9504" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "gitsigns.nvim": { "branch": "main", "commit": "a36bc3360d584d39b4fb076d855c4180842d4444" },
   "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
