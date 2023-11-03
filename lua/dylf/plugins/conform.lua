@@ -12,6 +12,7 @@ return {
 			javascript = { { "prettierd", "prettier" } },
 			svelte = { { "prettierd", "prettier" } },
 			typescript = { { "prettierd", "prettier" } },
+			typescriptreact = { { "prettierd", "prettier" } },
 		},
 	},
 }
