@@ -11,6 +11,7 @@ return {
 			astro = { { "prettierd", "prettier" } },
 			javascript = { { "prettierd", "prettier" } },
 			svelte = { { "prettierd", "prettier" } },
+			typescript = { { "prettierd", "prettier" } },
 		},
 	},
 }
