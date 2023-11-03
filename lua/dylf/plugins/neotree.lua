@@ -1,10 +1,13 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		opts = {},
 		config = function()
 			vim.keymap.set("n", "<Leader>e", require("oil").toggle_float, { desc = "[e]xplore files" })
-			require("oil").setup({})
+			require("oil").setup({
+				view_options = {
+					show_hidden = true,
+				},
+			})
 		end,
 	},
 	{
