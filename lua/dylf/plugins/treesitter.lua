@@ -33,6 +33,7 @@ return {
 					"lua",
 					"make",
 					"markdown",
+					"ocaml",
 					"php",
 					"prisma",
 					"python",

@@ -71,7 +71,7 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup(opts)
 end
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -101,7 +101,7 @@ lspconfig.yamlls.setup({
 	},
 })
 
-require("lspconfig").rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -121,6 +121,21 @@ require("lspconfig").rust_analyzer.setup({
 	},
 })
 
+lspconfig.ocamllsp.setup({
+	cmd = { "ocamllsp" },
+	filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+	root_dir = lspconfig.util.root_pattern(
+		"*.opam",
+		"esy.json",
+		"package.json",
+		".git",
+		"dune-project",
+		"dune-workspace"
+	),
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 local function preview_location_callback(_, result)
 	if result == nil or vim.tbl_isempty(result) then
 		return nil
@@ -128,7 +143,7 @@ local function preview_location_callback(_, result)
 	vim.lsp.util.preview_location(result[1])
 end
 
-function peek_definition()
+function Peek_definition()
 	local params = vim.lsp.util.make_position_params()
 	return vim.lsp.buf_request(0, "textDocument/definition", params, preview_location_callback)
 end
@@ -137,6 +152,6 @@ end
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>pd",
-	"<cmd>lua peek_definition()<CR>",
+	"<cmd>lua Peek_definition()<CR>",
 	{ noremap = true, silent = true, desc = "LSP: [p]eek [d]efinition" }
 )
