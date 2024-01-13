@@ -14,3 +14,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		end
 	end,
 })
+
+require("os")
+
+vim.filetype.add({
+	filename = {
+		[os.getenv("HOME") .. "/.kube/config"] = "yaml",
+	},
+})
