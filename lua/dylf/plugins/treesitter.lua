@@ -24,7 +24,6 @@ return {
 					"gitignore",
 					"go",
 					"graphql",
-					"help",
 					"html",
 					"http",
 					"javascript",
@@ -118,6 +117,7 @@ return {
 					},
 				},
 			})
+			vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })
 		end,
 	},
 }
