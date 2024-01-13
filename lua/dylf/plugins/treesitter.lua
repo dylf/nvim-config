@@ -20,6 +20,7 @@ return {
 					"css",
 					"dockerfile",
 					"elixir",
+					"gdscript",
 					"gitcommit",
 					"gitignore",
 					"go",
