@@ -20,6 +20,7 @@ return {
 			reason = { { "ocamlformat" } },
 			dune = { { "ocamlformat" } },
 			php = { { "phpcbf" } },
+			go = { { "gofmt" } },
 		},
 	},
 }
