@@ -7,6 +7,10 @@ return {
 					file_pattern = ".npmrc",
 					cloak_pattern = ":_authToken=.+",
 				},
+				{
+					file_pattern = ".env*",
+					cloak_pattern = "=.+",
+				},
 			},
 		})
 	end,
