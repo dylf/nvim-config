@@ -31,6 +31,12 @@ return {
 				desc = "toggle boolean",
 			},
 		},
+		opts = {
+			alternates = {
+				["☑️"] = "❌",
+				["yes"] = "no",
+			},
+		},
 	},
 	{
 		"windwp/nvim-autopairs",
