@@ -17,6 +17,7 @@ local servers = {
 	"rescriptls",
 	"gopls",
 	"svelte",
+	"clangd",
 }
 
 require("mason-lspconfig").setup({
@@ -101,6 +102,15 @@ lspconfig.ocamllsp.setup({
 	),
 	on_attach = on_attach,
 	capabilities = capabilities,
+})
+
+lspconfig.clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
 })
 
 local function preview_location_callback(_, result)
