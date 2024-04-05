@@ -1,7 +1,7 @@
 return {
 	{
 		"EdenEast/nightfox.nvim",
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		config = function()
 			require("nightfox").setup({
@@ -25,13 +25,22 @@ return {
 		"rose-pine/neovim",
 		name = "rose-pine",
 		priority = 1000,
-		lazy = false,
+		lazy = true,
 		config = function()
 			require("rose-pine").setup({
 				disable_background = true,
 				disable_italics = true,
 			})
-			vim.cmd([[colorscheme rose-pine]])
+			-- vim.cmd([[colorscheme rose-pine]])
+		end,
+	},
+	{
+		"uloco/bluloco.nvim",
+		lazy = false,
+		priority = 1000,
+		dependencies = { "rktjmp/lush.nvim" },
+		config = function()
+			vim.cmd([[colorscheme bluloco]])
 		end,
 	},
 }
