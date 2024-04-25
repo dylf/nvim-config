@@ -19,7 +19,7 @@ return {
 			["ocaml.ocamllex"] = { { "ocamlformat" } },
 			reason = { { "ocamlformat" } },
 			dune = { { "ocamlformat" } },
-			php = { { "phpcbf" } },
+			-- php = { { "phpcbf" } },
 			go = { { "gofmt" } },
 		},
 	},

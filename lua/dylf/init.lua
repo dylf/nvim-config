@@ -18,7 +18,27 @@ vim.api.nvim_create_autocmd("VimEnter", {
 require("os")
 
 vim.filetype.add({
+	extension = {
+		module = "php",
+		inc = "php",
+		install = "php",
+		profile = "php",
+		test = "php",
+		info = "ini",
+	},
 	filename = {
 		[os.getenv("HOME") .. "/.kube/config"] = "yaml",
+	},
+	pattern = {
+		[".*"] = {
+			priority = -math.huge,
+			function(_, bufnr)
+				-- check if the file opens with <?php
+				local content = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
+				if vim.regex([[<?php]]):match_str(content) ~= nil then
+					return "php"
+				end
+			end,
+		},
 	},
 })

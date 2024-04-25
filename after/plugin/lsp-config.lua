@@ -113,6 +113,44 @@ lspconfig.clangd.setup({
 	},
 })
 
+lspconfig.intelephense.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		intelephense = {
+			diagnostics = { enable = false },
+			files = {
+				associations = {
+					"*.php",
+					"*.module",
+					"*.inc",
+					"*.install",
+					"*.test",
+					"*.profile",
+					"*.theme",
+				},
+			},
+			format = { enable = false },
+			licenseKey = "~/.intelephense",
+			telemetry = { enabled = false },
+			environment = {
+				includePaths = {
+					"./core/",
+					"./core/includes",
+					"./web/core/",
+					"./web/core/includes",
+					"./www/core/",
+					"./www/core/includes",
+					"./docroot/core/",
+					"./docroot/core/includes",
+					"../vendor/",
+					"./vendor/",
+				},
+			},
+		},
+	},
+})
+
 local function preview_location_callback(_, result)
 	if result == nil or vim.tbl_isempty(result) then
 		return nil
