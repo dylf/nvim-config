@@ -30,10 +30,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" }
 vim.keymap.set("v", "<", "<gv", { desc = "Indent selected text left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent selected text right" })
 
--- git
-vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "[g]it toggle [b]lame" })
-vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", { desc = "[g]it [B]lame current line" })
-
 -- copy to system clipboard
 vim.keymap.set("v", "<Leader>y", '"+y', { desc = "Copy to system clipboard" })
 
