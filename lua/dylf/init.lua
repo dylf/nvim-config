@@ -6,8 +6,6 @@ require("dylf.ui")
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
-require("os")
-
 vim.filetype.add({
 	extension = {
 		module = "php",
@@ -18,9 +16,10 @@ vim.filetype.add({
 		info = "ini",
 	},
 	filename = {
-		[os.getenv("HOME") .. "/.kube/config"] = "yaml",
+		["~/.kube/config"] = "yaml",
 	},
 	pattern = {
+		["~/.config/zsh/.*"] = "zsh",
 		[".*"] = {
 			priority = -math.huge,
 			function(_, bufnr)
