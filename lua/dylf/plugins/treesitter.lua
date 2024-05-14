@@ -13,11 +13,15 @@ return {
 		end,
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				-- Add languages to be installed here that you want installed for treesitter
+				sync_install = false,
+				ignore_install = {},
+				modules = {},
+				auto_install = false,
 				ensure_installed = {
 					"astro",
 					"bash",
 					"css",
+					"diff",
 					"dockerfile",
 					"elixir",
 					"gdscript",
