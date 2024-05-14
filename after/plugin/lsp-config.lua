@@ -18,6 +18,7 @@ local servers = {
 	"gopls",
 	"svelte",
 	"clangd",
+	"taplo",
 }
 
 require("mason-lspconfig").setup({
