@@ -51,10 +51,9 @@ return {
 			{
 				"<leader>aq",
 				function()
-					local input = vim.fn.input("Quick Chat: ")
-					if input ~= "" then
+					vim.ui.input({ prompt = "Quick Chat: " }, function(input)
 						require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-					end
+					end)
 				end,
 				desc = "AI: - Quick chat",
 			},
