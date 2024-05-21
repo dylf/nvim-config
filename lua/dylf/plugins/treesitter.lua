@@ -33,6 +33,7 @@ return {
 					"http",
 					"javascript",
 					"json",
+					"just",
 					"kdl",
 					"lua",
 					"make",
