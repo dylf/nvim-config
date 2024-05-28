@@ -19,6 +19,7 @@ vim.filetype.add({
 		["~/.kube/config"] = "yaml",
 	},
 	pattern = {
+		["Dockerfile.*"] = "dockerfile",
 		["~/.config/zsh/.*"] = "zsh",
 		[".*"] = {
 			priority = -math.huge,
