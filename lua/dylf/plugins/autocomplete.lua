@@ -56,7 +56,7 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-e>"] = cmp.mapping.abort(),
 				},
 				sources = cmp.config.sources({
