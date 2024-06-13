@@ -40,12 +40,12 @@ return {
 		},
 		opts = {
 			window = {
-				relative = "cursor",
-				layout = "float",
+				-- relative = "cursor",
+				-- layout = "float",
 				border = "rounded",
-				width = 1,
-				row = 1,
-				height = 0.3,
+				-- width = 1,
+				-- row = 1,
+				-- height = 0.3,
 			},
 		},
 		keys = {
