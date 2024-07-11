@@ -21,6 +21,9 @@ vim.filetype.add({
 	pattern = {
 		["Dockerfile.*"] = "dockerfile",
 		["~/.config/zsh/.*"] = "zsh",
+		[".*/.zed/.*.json"] = "jsonc",
+		[".*/zed/.*.json"] = "jsonc",
+		[".*/vscode/.*.json"] = "jsonc",
 		[".*"] = {
 			priority = -math.huge,
 			function(_, bufnr)
