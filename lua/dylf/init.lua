@@ -23,7 +23,7 @@ vim.filetype.add({
 		["~/.config/zsh/.*"] = "zsh",
 		[".*/.zed/.*.json"] = "jsonc",
 		[".*/zed/.*.json"] = "jsonc",
-		[".*/vscode/.*.json"] = "jsonc",
+		[".*/.vscode/.*.json"] = "json5",
 		[".*"] = {
 			priority = -math.huge,
 			function(_, bufnr)
