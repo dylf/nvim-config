@@ -13,6 +13,7 @@ return {
 		{ "<Leader>of", "<cmd>ObsidianQuickSwitch<CR>", desc = "[o]bsidian [f]iles" },
 		{ "<Leader>od", "<cmd>ObsidianDailies<CR>", desc = "[o]bsidian [d]ailies" },
 		{ "<Leader>on", "<cmd>ObsidianNew<CR>", desc = "[o]bsidian [n]ew" },
+		{ "<Leader>oo", "<cmd>ObsidianOpen<CR>", desc = "[o]bsidian [o]pen" },
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
