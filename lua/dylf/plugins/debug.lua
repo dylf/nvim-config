@@ -5,11 +5,16 @@ return {
 		"nvim-neotest/nvim-nio",
 		"williamboman/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
+    {
+      "Joakker/lua-json5",
+      build = "./install.sh",
+    }
 	},
 	event = "VeryLazy",
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
+    require('dap.ext.vscode').json_decode = require'json5'.parse
 
 		require("mason-nvim-dap").setup({
 			-- not working for php adapter?
@@ -58,6 +63,7 @@ return {
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "DAP: [B]reakpoint with condition" })
 		vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "DAP: [d]ebug ui [c]lose" })
+		vim.keymap.set("n", "<leader>do", dapui.open, { desc = "DAP: [d]ebug ui [o]pen" })
 
 		-- Dap UI setup
 		dapui.setup({
