@@ -3,7 +3,7 @@ require("mason").setup()
 
 local servers = {
 	"rust_analyzer",
-	"tsserver",
+	"ts_ls",
 	"lua_ls",
 	"yamlls",
 	"dockerls",
@@ -14,7 +14,6 @@ local servers = {
 	"bashls",
 	"sqlls",
 	"jsonls",
-	"rescriptls",
 	"gopls",
 	"svelte",
 	"clangd",
