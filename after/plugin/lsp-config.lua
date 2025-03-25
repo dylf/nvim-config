@@ -1,3 +1,6 @@
+if vim.g.vscode then
+	return
+end
 -- Set up mason to manage LSPs.
 require("mason").setup()
 
@@ -22,6 +25,7 @@ local servers = {
 
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
+	automatic_installation = false,
 })
 
 local lsp = require("dylf.lsp")

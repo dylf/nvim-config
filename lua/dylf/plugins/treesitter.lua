@@ -32,6 +32,7 @@ return {
 					"http",
 					"javascript",
 					"json",
+					"jsonc",
 					"just",
 					"kdl",
 					"lua",
