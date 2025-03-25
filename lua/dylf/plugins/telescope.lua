@@ -36,7 +36,7 @@ return {
 				},
 				pickers = {
 					find_files = {
-						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+						find_command = { "rg", "--no-ignore-vcs", "--files", "--hidden", "--glob", "!**/.git/*" },
 						mappings = {
 							i = {
 								["<C-g>"] = toggle_gitignore,
@@ -60,8 +60,12 @@ return {
 				builtin.live_grep({ additional_args = { "--no-ignore", "--hidden" } })
 			end
 
+      custom_tele.live_grep = function()
+        builtin.live_grep({ additional_args = { "--no-ignore-vcs", "--hidden" } })
+      end
+
 			vim.keymap.set("n", "<Leader>ff", builtin.find_files, { desc = "[f]ind [f]iles" })
-			vim.keymap.set("n", "<Leader>fg", builtin.live_grep, { desc = "[f]ind [g]rep" })
+			vim.keymap.set("n", "<Leader>fg", custom_tele.live_grep, { desc = "[f]ind [g]rep" })
 			vim.keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "[f]ind [b]uffers" })
 			vim.keymap.set("n", "<Leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp" })
 			vim.keymap.set("n", "<Leader>fc", builtin.colorscheme, { desc = "[f]ind [c]olorschemes" })
