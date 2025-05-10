@@ -50,6 +50,7 @@ return {
 					"twig",
 					"typescript",
 					"vim",
+					"xml",
 					"yaml",
 				},
 				highlight = {
