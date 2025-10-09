@@ -5,6 +5,7 @@ return {
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
+				copilot_model = "claude-3.7-sonnet",
 				panel = {
 					auto_refresh = true,
 					keymap = {
@@ -16,9 +17,9 @@ return {
 				suggestion = {
 					auto_trigger = true,
 					keymap = {
-						accept_word = "<M-w>",
-						accept_line = "<M-l>",
-						accept = "<M-b>",
+						accept_word = "<C-SHIFT-W>",
+						accept_line = "<C-L>",
+						accept = "<C-B>",
 					},
 				},
 				filetypes = {
@@ -46,6 +47,7 @@ return {
 				-- row = 1,
 				-- height = 0.3,
 			},
+			model = "claude-3.7-sonnet",
 		},
 		keys = {
 			{

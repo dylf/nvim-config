@@ -21,6 +21,7 @@ local servers = {
 	"svelte",
 	"clangd",
 	"taplo",
+	"mdx_analyzer",
 }
 
 require("mason-lspconfig").setup({

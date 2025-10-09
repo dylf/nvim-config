@@ -1,2 +1,4 @@
-if vim.g.vscode then return end
-vim.cmd([[colorscheme rose-pine]])
+if vim.g.vscode then
+	return
+end
+vim.cmd([[colorscheme carbonfox]])
