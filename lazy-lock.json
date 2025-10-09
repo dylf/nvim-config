@@ -3,6 +3,7 @@
   "CopilotChat.nvim": { "branch": "main", "commit": "a3932a1505a990c238183617b5c5cb239f43f5ec" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "alternate-toggler": { "branch": "main", "commit": "819800304d3e8e575fd6aa461a8bcf2217e1cfb6" },
+  "avante.nvim": { "branch": "main", "commit": "54a1df28b67a97e0f05ad33808bea6c1abae7ea9" },
   "bluloco.nvim": { "branch": "main", "commit": "d1cd1b5bd8798cdf24e9fc9d5e9311742049da05" },
   "catppuccin": { "branch": "main", "commit": "4bb938bbba41d306db18bf0eb0633a5f28fd7ba0" },
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
