@@ -4,7 +4,7 @@ return {
 		priority = 1000,
 		opts = {
 			options = {
-				transparent = true,
+				transparent = false,
 				styles = {
 					comments = "italic",
 				},
@@ -21,7 +21,7 @@ return {
 		name = "rose-pine",
 		priority = 1000,
 		opts = {
-			disable_background = true,
+			disable_background = false,
 			disable_italics = true,
 		},
 	},
@@ -30,7 +30,7 @@ return {
 		priority = 1000,
 		dependencies = { "rktjmp/lush.nvim" },
 		opts = {
-			transparent = true,
+			transparent = false,
 			italics = true,
 		},
 	},
