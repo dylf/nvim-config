@@ -24,6 +24,7 @@ vim.filetype.add({
 		[".*/.zed/.*.json"] = "jsonc",
 		[".*/zed/.*.json"] = "jsonc",
 		[".*/.vscode/.*.json"] = "json5",
+		[".*.gitconfig"] = "gitconfig",
 		[".*"] = {
 			priority = -math.huge,
 			function(_, bufnr)
