@@ -22,6 +22,7 @@ local servers = {
 	"clangd",
 	"taplo",
 	"mdx_analyzer",
+  "elixirls",
 }
 
 require("mason-lspconfig").setup({
@@ -155,6 +156,8 @@ lspconfig.intelephense.setup({
 		},
 	},
 })
+
+lspconfig.gleam.setup({})
 
 local function preview_location_callback(_, result)
 	if result == nil or vim.tbl_isempty(result) then

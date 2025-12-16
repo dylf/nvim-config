@@ -26,6 +26,7 @@ return {
 					"gdscript",
 					"gitcommit",
 					"gitignore",
+          "gleam",
 					"go",
 					"graphql",
 					"html",
