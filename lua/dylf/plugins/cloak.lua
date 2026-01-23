@@ -11,6 +11,10 @@ return {
 					file_pattern = ".env*",
 					cloak_pattern = "=.+",
 				},
+				{
+					file_pattern = "secrets.zsh",
+					cloak_pattern = "=.+",
+				},
 			},
 		})
 	end,
