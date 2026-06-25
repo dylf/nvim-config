@@ -22,7 +22,7 @@ local servers = {
 	"clangd",
 	"taplo",
 	"mdx_analyzer",
-  "elixirls",
+	"elixirls",
 }
 
 require("mason-lspconfig").setup({
@@ -33,131 +33,115 @@ require("mason-lspconfig").setup({
 local lsp = require("dylf.lsp")
 local capabilities = lsp.capabilities
 local on_attach = lsp.on_attach
+local util = require("lspconfig.util")
 
-local lspconfig = require("lspconfig")
+local base_config = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
 
-for _, lsp_server in ipairs(servers) do
-	local opts = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	}
+local server_configs = {
+	lua_ls = {
+		settings = {
+			Lua = {
+				completion = {
+					callSnippet = "Replace",
+				},
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					checkThirdParty = false,
+				},
+				-- Do not send telemetry data containing a randomized but unique identifier
+				telemetry = { enable = false },
+			},
+		},
+	},
+	yamlls = {
+		settings = {
+			yaml = {
+				keyOrdering = false,
+			},
+		},
+	},
+	rust_analyzer = {
+		settings = {
+			["rust-analyzer"] = {
+				checkOnSave = {
+					allFeatures = true,
+					overrideCommand = {
+						"cargo",
+						"clippy",
+						"--workspace",
+						"--message-format=json",
+						"--all-targets",
+						"--all-features",
+					},
+				},
+			},
+		},
+	},
+	ocamllsp = {
+		cmd = { "ocamllsp" },
+		filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+		root_dir = util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
+	},
+	clangd = {
+		cmd = {
+			"clangd",
+			"--offset-encoding=utf-16",
+		},
+	},
+	intelephense = {
+		settings = {
+			intelephense = {
+				diagnostics = { enable = false },
+				files = {
+					associations = {
+						"*.php",
+						"*.module",
+						"*.inc",
+						"*.install",
+						"*.test",
+						"*.profile",
+						"*.theme",
+					},
+				},
+				format = { enable = false },
+				licenseKey = "~/.intelephense",
+				telemetry = { enabled = false },
+				environment = {
+					includePaths = {
+						"./core/",
+						"./core/includes",
+						"./web/core/",
+						"./web/core/includes",
+						"./www/core/",
+						"./www/core/includes",
+						"./docroot/core/",
+						"./docroot/core/includes",
+						"../vendor/",
+						"./vendor/",
+					},
+				},
+			},
+		},
+	},
+	gleam = {},
+}
 
-	lspconfig[lsp_server].setup(opts)
+local function configure(server, opts)
+	vim.lsp.config(server, vim.tbl_deep_extend("force", {}, base_config, opts or {}))
+	vim.lsp.enable(server)
 end
 
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			completion = {
-				callSnippet = "Replace",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				checkThirdParty = false,
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = { enable = false },
-		},
-	},
-})
+for _, server in ipairs(servers) do
+	configure(server, server_configs[server])
+end
 
-lspconfig.yamlls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		yaml = {
-			keyOrdering = false,
-		},
-	},
-})
-
-lspconfig.rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		["rust-analyzer"] = {
-			checkOnSave = {
-				allFeatures = true,
-				overrideCommand = {
-					"cargo",
-					"clippy",
-					"--workspace",
-					"--message-format=json",
-					"--all-targets",
-					"--all-features",
-				},
-			},
-		},
-	},
-})
-
-lspconfig.ocamllsp.setup({
-	cmd = { "ocamllsp" },
-	filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
-	root_dir = lspconfig.util.root_pattern(
-		"*.opam",
-		"esy.json",
-		"package.json",
-		".git",
-		"dune-project",
-		"dune-workspace"
-	),
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-lspconfig.clangd.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	cmd = {
-		"clangd",
-		"--offset-encoding=utf-16",
-	},
-})
-
-lspconfig.intelephense.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		intelephense = {
-			diagnostics = { enable = false },
-			files = {
-				associations = {
-					"*.php",
-					"*.module",
-					"*.inc",
-					"*.install",
-					"*.test",
-					"*.profile",
-					"*.theme",
-				},
-			},
-			format = { enable = false },
-			licenseKey = "~/.intelephense",
-			telemetry = { enabled = false },
-			environment = {
-				includePaths = {
-					"./core/",
-					"./core/includes",
-					"./web/core/",
-					"./web/core/includes",
-					"./www/core/",
-					"./www/core/includes",
-					"./docroot/core/",
-					"./docroot/core/includes",
-					"../vendor/",
-					"./vendor/",
-				},
-			},
-		},
-	},
-})
-
-lspconfig.gleam.setup({})
+configure("ocamllsp", server_configs.ocamllsp)
+configure("gleam", server_configs.gleam)
 
 local function preview_location_callback(_, result)
 	if result == nil or vim.tbl_isempty(result) then

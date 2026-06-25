@@ -1,7 +1,10 @@
 return {
 	"nvim-tree/nvim-web-devicons",
 	{
-		"ggandor/leap.nvim",
+		url = "https://codeberg.org/andyg/leap.nvim",
+		enabled = false,
+		disabled = true,
+
 		config = function()
 			require("leap").add_default_mappings()
 		end,

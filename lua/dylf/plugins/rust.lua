@@ -1,19 +1,8 @@
 return {
 	"saecki/crates.nvim",
-	dependencies = {
-		"jose-elias-alvarez/null-ls.nvim",
-		"nvim-lua/plenary.nvim",
-	},
 	event = "BufRead Cargo.toml",
-	tag = "v0.3.0",
+	tag = "stable",
 	config = function()
-		require("null-ls")
-
-		require("crates").setup({
-			null_ls = {
-				enabled = true,
-				name = "crates.nvim",
-			},
-		})
+		require("crates").setup()
 	end,
 }

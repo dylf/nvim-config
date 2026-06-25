@@ -5,9 +5,10 @@ return {
 		keys = {
 			{ "<Leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "[g]it toggle [b]lame" },
 			{ "<Leader>gB", "<cmd>Gitsigns blame_line<CR>", desc = "[g]it [B]lame current line" },
+			{ "<Leader>gd", "<cmd>Gitsigns diffthis<CR>", desc = "[g]it [d]iff" },
+			{ "<Leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "[g]it [r]eset hunk" },
 		},
 		opts = {
-			yadm = { enable = true },
 			signs = {
 				add = { text = "▎" },
 				change = { text = "▎" },

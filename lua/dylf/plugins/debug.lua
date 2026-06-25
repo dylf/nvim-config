@@ -5,10 +5,6 @@ return {
 		"nvim-neotest/nvim-nio",
 		"williamboman/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
-		{
-			"Joakker/lua-json5",
-			build = "./install.sh",
-		},
 	},
 	event = "VeryLazy",
 	keys = {
@@ -144,7 +140,6 @@ return {
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-		require("dap.ext.vscode").json_decode = require("json5").parse
 
 		dap.adapters.php = {
 			type = "executable",
