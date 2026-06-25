@@ -127,6 +127,32 @@ return {
 				},
 			})
 
+			-- Neovim 0.12 + current Treesitter markdown fenced-code injections can
+			-- crash hover buffers while resolving the info string language. Keep the
+			-- non-fence markdown injections and let hover/code fences render plainly.
+			vim.treesitter.query.set("markdown", "injections", [[
+((html_block) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined)
+  (#set! injection.include-children))
+
+((minus_metadata) @injection.content
+  (#set! injection.language "yaml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+((plus_metadata) @injection.content
+  (#set! injection.language "toml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+([
+  (inline)
+  (pipe_table_cell)
+] @injection.content
+  (#set! injection.language "markdown_inline"))
+			]])
+
 			require("treesitter-context").setup({
 				max_lines = 3,
 				patterns = {
