@@ -18,8 +18,8 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	opts = {
-		workspaces = {
+	opts = function()
+		local workspaces = {
 			{
 				name = "personal-vault",
 				path = "~/Documents/personal-vault",
@@ -32,17 +32,23 @@ return {
 				name = "work-vault",
 				path = "~/Documents/work-vault",
 			},
-		},
-		daily_notes = {
-			folder = "daily",
-			template = "daily",
-		},
-		templates = {
-			subdir = "-templates",
-			date_format = "%Y-%m-%d",
-			time_format = "%H:%M",
-			-- A map for custom variables, the key should be the variable and the value a function
-			substitutions = {},
-		},
-	},
+		}
+
+		return {
+			workspaces = vim.tbl_filter(function(workspace)
+				return vim.fn.isdirectory(vim.fn.expand(workspace.path)) == 1
+			end, workspaces),
+			daily_notes = {
+				folder = "daily",
+				template = "daily",
+			},
+			templates = {
+				subdir = "-templates",
+				date_format = "%Y-%m-%d",
+				time_format = "%H:%M",
+				-- A map for custom variables, the key should be the variable and the value a function
+				substitutions = {},
+			},
+		}
+	end,
 }
